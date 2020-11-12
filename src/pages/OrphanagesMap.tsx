@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View, Dimensions, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Dimensions } from 'react-native';
 import { Feather } from "@expo/vector-icons";
 import { useFonts } from "expo-font";
 import { Nunito_600SemiBold, Nunito_700Bold, Nunito_800ExtraBold } from "@expo-google-fonts/nunito";
@@ -8,12 +8,16 @@ import MapView, { Marker, Callout, PROVIDER_GOOGLE } from 'react-native-maps';
 
 import mapMarker from '../images/map-marker.png';
 import { useNavigation } from "@react-navigation/native";
+import { RectButton } from "react-native-gesture-handler";
 
 export default function OrphanagesMap() {
     const navigation = useNavigation();
 
     function handleToOrphanageDetails() {
         navigation.navigate('OrphanageDetails');
+    }
+    function handleNavigateToCreateOrphanage() {
+        navigation.navigate('SelectMapPosition');
     }
 
     function regionFrom(lat: number, lon: number) {
@@ -65,13 +69,11 @@ export default function OrphanagesMap() {
                 <Text style={styles.footerText}>
                     orfanatos encontrados
               </Text>
-                <TouchableOpacity
+                <RectButton
                     style={styles.createOrphanageButton}
-                    onPress={() => {
-                        alert('criar orfanato')
-                    }}>
+                    onPress={handleNavigateToCreateOrphanage}>
                     <Feather name='plus' size={20} color='#FFF' />
-                </TouchableOpacity>
+                </RectButton>
             </View>
         </View>
     );
