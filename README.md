@@ -1,2 +1,3 @@
 # NLW-3-mobile
-Next Level Week 3 - mobile version
+Projeto criado na NextLevelWeek 3 realizado pela RocketSeat
+MOBILE VERSION
